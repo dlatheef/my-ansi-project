@@ -1,0 +1,6 @@
+---
+# vars file for my-project
+apache_package: apache2
+apache_daemon: apache2
+apache_docroot: /var/www/html
+apache_conf: /etc/apache2/conf-enabled/  

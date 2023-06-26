@@ -1,0 +1,7 @@
+---
+- name: this is roles
+  hosts: all
+  # remote_user: root
+  become: true
+  roles:
+    - role: my-project

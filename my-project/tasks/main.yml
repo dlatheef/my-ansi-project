@@ -1,0 +1,27 @@
+---
+# tasks file for my-project
+
+- name: install apache package
+  apt:
+    name: "{{ apache_package }}"
+      #update_cache: yes
+    state: absent
+
+
+- name: start service
+  service:
+    name: "{{ apache_daemon }}"
+    state: started
+
+- name: copy the index.html  to /var/www/html
+  copy:
+    src: /home/latheef/test.html
+    dest: "{{ apache_docroot }}"
+
+- name: Add Apache configuration setting
+  template:
+    src: apche.j2
+    dest: "{{ apache_conf }}"
+    notify: restart_apche
+
+
